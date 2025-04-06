@@ -1,0 +1,29 @@
+# Node.js
+frontend/node_modules
+frontend/dist
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+*.sqlite3
+*.log
+*.pot
+*.py[cod]
+*.swp
+.DS_Store
+db.sqlite3
+
+# Environments
+.env
+.env.*
+
+# Others
+*.local
+*.lock
+.idea/
+.vscode/
