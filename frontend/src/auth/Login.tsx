@@ -13,9 +13,17 @@ import axios from "axios";
 
 // shadcn modules
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 
 // zod schema
 const formSchema = z.object({
@@ -50,7 +58,7 @@ function LoginForm() {
       console.log("Login success", values);
 
       // navigate to home
-      navigate("/");
+      navigate("/home");
     } catch (error: any) {
       setServerError("Something went wrong. Please try again.");
       console.error("Login error:", error);
@@ -83,11 +91,21 @@ function LoginForm() {
           <FormField
             control={form.control}
             name="password"
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="Password" {...field} />
+                  <Input
+                    className={cn(
+                      "text-[13.5px] font-manrope border focus-visible:ring-2", // Always apply base border width and ring
+                      fieldState.error
+                        ? "border-red-700 focus-visible:ring-red-500"
+                        : "border-moss-black focus-visible:ring-brand"
+                    )}
+                    type="password"
+                    placeholder="Password"
+                    {...field}
+                  />
                 </FormControl>
                 {/* <FormDescription>Enter your password.</FormDescription> */}
                 <FormMessage></FormMessage>
@@ -121,7 +139,7 @@ export default function Login() {
   return (
     <>
       {/* heading and subheading */}
-      <div className="flex flex-col items-center space-y-2 my-6">
+      <div className="flex flex-col items-center space-y-2 my-6 ">
         {/* logo */}
 
         {/* heading */}
@@ -132,7 +150,7 @@ export default function Login() {
       </div>
 
       {/* login form */}
-      <LoginForm></LoginForm>
+      <LoginForm />
     </>
   );
 }
