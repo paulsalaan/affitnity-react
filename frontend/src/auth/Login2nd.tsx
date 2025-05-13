@@ -97,12 +97,21 @@ function LoginForm() {
 
       // make a POST request to the backend
       const response = await axios.post<LoginResponse>(
-        "http://localhost:8000/api/login/",
+        "http://localhost:8000/api/users/login/",
         {
           email: values.email,
           password: values.password,
         }
       );
+
+      // dummy api
+      // const response = await axios.post<LoginResponse>(
+      //   "http://localhost:8000/api/users/login/",
+      //   {
+      //     email: values.email,
+      //     password: values.password,
+      //   }
+      // );
 
       const token = response.data.token;
       localStorage.setItem("token", token);
@@ -142,7 +151,7 @@ function LoginForm() {
             <FormField
               control={form.control}
               name="email"
-              render={({ field, fieldState }) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-dmsans text-[14px] text-moss-black">
                     Email

@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import DateComponent from "../components/DateComponent";
+import Footer from "../pages/Footer";
 
 //import assets
 import HeroImage from "../assets/image/hero_image.jpg";
@@ -524,26 +525,93 @@ function Contacts() {
               </div>
             </div>
           </div>
-          <div className="bg-brand rounded-xl self-start grid grid-cols-1 p-5 space-y-3 md:col-span-4">
+
+          {/* <div className="bg-brand rounded-xl grid grid-cols-1 p-5 md:col-span-4">
             <h1 className="text-moss-black text-3xl font-semibold">
               Any concerns, don’t worry <br />
               we’re open to have a chat with you
             </h1>
-            <p className="text-sm">
+            <p className="text-sm font-dmsans">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             </p>
 
-            {/* form section */}
+            {/* form section
             <div>
               <input
                 type="text"
                 placeholder="Your name"
-                className="bg-transparent w-full rounded-lg px-2 h-8 text-sm text-moss-black border border-moss-black"
+                className="bg-transparent border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
               />
             </div>
+
+            <div>
+              <input
+                type="text"
+                placeholder="Your email"
+                className="bg-transparent mb-8 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <input
+                type="text"
+                placeholder="Your message"
+                className="bg-transparent border-0 border-b mb-5 w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+              />
+            </div>
+
+            <Link
+              to=""
+              className="bg-moss-black text-snow-white hover:bg-gray-900 p-2 rounded-lg font-dmsans text-sm text-center"
+            >
+              Submit your message
+            </Link>
+          </div> */}
+
+          {/* right container */}
+          <div className="bg-brand grid grid-rows-[1fr_auto] rounded-lg p-5 md:col-span-4">
+            <div>
+              <h1 className="text-2xl text-moss-black font-semibold mb-5 md:text-3xl">
+                Any concerns, don’t worry <br />
+                we’re open to have a chat with you
+              </h1>
+
+              <p className="text-sm font-dmsans mb-3">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </p>
+
+              {/* input forms */}
+              <div className="w-full">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="bg-transparent mb-3 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Your email"
+                  className="bg-transparent mb-10 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Your message"
+                  className="bg-transparent mb-3 border-0 border-b w-full h-8 text-sm text-moss-black placeholder:text-moss-black border-moss-black focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <Link
+              to=""
+              className="bg-moss-black text-snow-white hover:bg-gray-900 block w-full p-2 rounded-md font-dmsans text-sm text-center"
+            >
+              Submit your message
+            </Link>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

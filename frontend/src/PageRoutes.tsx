@@ -6,6 +6,11 @@ import LoginTrial from "./auth/LoginTrial";
 import Home from "./pages/Home";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
+import WorkoutGallery from "./pages/WorkoutGallery";
+
+//tests page
+import HomeDummy from "./pages/DummyHome";
+import PlanDummy from "./pages/DummyPlan";
 
 export default function PageRoutes() {
   return (
@@ -19,6 +24,9 @@ export default function PageRoutes() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/logintrial" element={<LoginTrial />}></Route>
           <Route path="/login2nd" element={<Login2nd />}></Route>
+          <Route path="/workoutgallery" element={<WorkoutGallery />}></Route>
+          <Route path="/dummyhome" element={<HomeDummy />} />
+          <Route path="/dummyplan" element={<PlanDummy />} />
         </Routes>
       </BrowserRouter>
     </>
