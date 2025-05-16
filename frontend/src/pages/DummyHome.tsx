@@ -1,4 +1,4 @@
-import NavLink from "../components/NavLinks";
+// import NavLink from "../components/NavLinks";
 
 export default function DummyHome() {
   return (

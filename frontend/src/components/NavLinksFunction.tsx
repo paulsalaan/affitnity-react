@@ -1,18 +1,18 @@
 import { NavLink } from "react-router-dom";
 import { useRef } from "react";
 
-export default function NavLinks() {
+export default function NavLinksFunction() {
   //scroll to contacts and services section
-  // const contactRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
 
-  // const scrollToContact = () => {
-  //   if (contactRef.current) {
-  //     contactRef.current.scrollIntoView({
-  //       behavior: "smooth",
-  //       block: "start",
-  //     });
-  //   }
-  // };
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <>

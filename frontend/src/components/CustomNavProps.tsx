@@ -1,13 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 interface CustomNavProps {
   to: string;
   label: string;
-  className?: string; // ang base style sa nav
-  activeClassName?: string; // active style sa nav
-  inactiveClassName?: string; // inactive style sa nav
-  scrollToId?: string; // id sa section nga gusto i-scroll
-  scrollOffset?: number; // offset sa scroll
+  className?: string;
+  activeClassName?: string;
+  inactiveClassName?: string;
+  scrollToId?: string;
+  scrollOffset?: number;
 }
 
 export default function CustomNavLink({
@@ -19,11 +20,23 @@ export default function CustomNavLink({
   scrollToId,
   scrollOffset = 0,
 }: CustomNavProps) {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (scrollToId) {
+      const element = document.getElementById(scrollToId);
+      if (element) {
+        const topPosition =
+          element.getBoundingClientRect().top + window.scrollY - scrollOffset;
+        window.scrollTo({ top: topPosition, behavior: "smooth" });
+      }
+    }
+  }, [location.pathname, scrollToId, scrollOffset]);
+
   const handleClick = (e: React.MouseEvent) => {
     if (scrollToId) {
-      e.preventDefault(); // e prevent niya ang link behaviour
+      e.preventDefault(); // Prevent the default NavLink behavior
       const element = document.getElementById(scrollToId);
-
       if (element) {
         const topPosition =
           element.getBoundingClientRect().top + window.scrollY - scrollOffset;
@@ -31,7 +44,6 @@ export default function CustomNavLink({
       }
     }
   };
-
   return (
     <NavLink
       to={to}
@@ -44,36 +56,3 @@ export default function CustomNavLink({
     </NavLink>
   );
 }
-
-// export default function CustomNavLink({
-//   to,
-//   label,
-//   className = "",
-//   activeClassName = "text-gray-600",
-//   inactiveClassName = "text-moss-black hover:text-yellow-300",
-//   scrollToId,
-//   scrollOffset = 0,
-// }: CustomNavProps) {
-//   const handleClick = (e: React.MouseEvent) => {
-//     if (scrollToId) {
-//       e.preventDefault(); // prevent default link behavior
-//       const element = document.getElementById(scrollToId);
-//       if (element) {
-//         const topPosition = element.getBoundingClientRect().top + window.scrollY - scrollOffset;
-//         window.scrollTo({ top: topPosition, behavior: "smooth" });
-//       }
-//     }
-//   };
-
-//   return (
-//     <NavLink
-//       to={to}
-//       onClick={handleClick}
-//       className={({ isActive }: { isActive: boolean }) =>
-//         `${className} ${isActive ? activeClassName : inactiveClassName}`
-//       }
-//     >
-//       {label}
-//     </NavLink>
-//   );
-// }

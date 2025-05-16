@@ -4,7 +4,6 @@ import { NavLink, Link } from "react-router-dom";
 
 // import screens
 import { Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import NavLinks from "@/components/NavLinks";
 
 // open source icons
 
@@ -41,7 +40,7 @@ export default function WorkoutGallery() {
           </h1>
 
           {/* nav links */}
-          <NavLinks />
+          {/* <NavLinks /> */}
 
           <div className="hidden border border-moss-black rounded-lg p-2 sm:flex sm:gap-3">
             <div className="bg-gray-400 w-7 h-7 rounded-2xl"></div>
@@ -65,7 +64,6 @@ export default function WorkoutGallery() {
 
               {/* open nav links for mobile */}
               <div className="flex flex-col self-end text-right font-aeonik font-medium text-lg gap-4">
-                
                 {/* <Link to="/">Home</Link>
                 <Link to="/" className="text-brand">
                   My Plan
